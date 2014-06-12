@@ -2,14 +2,14 @@
 require 'new_relic/agent/method_tracer'
 
 DependencyDetection.defer do
-  @name = :cql
+  named :cql
+
+  depends_on do
+    defined?(::Cql)
+  end
 
   executes do
     ::NewRelic::Agent.logger.info 'Installing Cassandra Cql instrumentation'
-  end
-
-  depends_on do
-    defined?(Cql)
   end
 
   executes do
