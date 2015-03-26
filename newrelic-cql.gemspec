@@ -14,5 +14,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = NewrelicCql::VERSION
 
-  gem.add_dependency 'newrelic_rpm', '>= 3.11.0.283'
+  gem.add_dependency 'newrelic_rpm', '~> 3.11', '>= 3.11.0.283'
 end
