@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'new_relic/agent/method_tracer'
+require 'new_relic/agent'
 
 DependencyDetection.defer do
   named :cql
@@ -13,13 +13,12 @@ DependencyDetection.defer do
   end
 
   executes do
-    [Cql::Client::AsynchronousClient, Cql::Client::SynchronousClient].each do |klass|
-      klass.class_eval do
-        include ::NewRelic::Agent::MethodTracer
-        add_method_tracer :prepare, 'Database/Cql/prepare'
-        add_method_tracer :execute, 'Database/Cql/execute'
-        add_method_tracer :batch, 'Database/Cql/batch'
-      end
+    require 'new_relic/agent/datastores'
+
+    [::Cql::Client::AsynchronousClient, ::Cql::Client::SynchronousClient].each do |klass|
+      NewRelic::Agent::Datastores.trace klass, :prepare, 'Cql'
+      NewRelic::Agent::Datastores.trace klass, :execute, 'Cql'
+      NewRelic::Agent::Datastores.trace klass, :batch, 'Cql'
     end
   end
 end
