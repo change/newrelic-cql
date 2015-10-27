@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.license     = "MIT"
 
   gem.files         = Dir["{lib}/**/*.rb", "LICENSE", "*.md"]
-  gem.name          = "cassandra-driver"
+  gem.name          = "newrelic-cql"
   gem.require_paths = ["lib"]
   gem.version       = NewrelicCql::VERSION
 
