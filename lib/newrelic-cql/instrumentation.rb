@@ -2,23 +2,24 @@
 require 'new_relic/agent'
 
 DependencyDetection.defer do
-  named :cql
+  named :cassandra
 
   depends_on do
-    defined?(::Cql)
+    defined?(::Cassandra)
   end
 
   executes do
-    ::NewRelic::Agent.logger.info 'Installing Cassandra Cql instrumentation'
+    ::NewRelic::Agent.logger.info 'Installing Cassandra ruby-driver instrumentation'
   end
 
   executes do
     require 'new_relic/agent/datastores'
 
-    [::Cql::Client::AsynchronousClient, ::Cql::Client::SynchronousClient].each do |klass|
+    [::Cassandra::Session].each do |klass|
       NewRelic::Agent::Datastores.trace klass, :prepare, 'Cql'
-      NewRelic::Agent::Datastores.trace klass, :execute, 'Cql'
       NewRelic::Agent::Datastores.trace klass, :batch, 'Cql'
+      NewRelic::Agent::Datastores.trace klass, :execute, 'Cql'
+      NewRelic::Agent::Datastores.trace klass, :execute_async, 'Cql'
     end
   end
 end
