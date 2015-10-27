@@ -1,7 +1,7 @@
-# NewRelic for cql-rb
+# NewRelic for Cassandra ruby-driver
 
 Unofficial [NewRelic](http://newrelic.com/) instrumentation for the
-[cql-rb](https://github.com/iconara/cql-rb) Cassandra database ruby gem.
+[DataStax Cassandra ruby-driver](https://github.com/datastax/ruby-driver) gem.
 
 ## Installation
 
@@ -16,6 +16,10 @@ And then execute:
 Or install it yourself with:
 
     $ gem install newrelic-cql
+
+## Releases
+* 0.2.0 Support for the [DataStax ruby-driver](https://github.com/datastax/ruby-driver) gem
+* 0.1.0 Support for [cql-rb](https://github.com/iconara/cql-rb) gem
 
 ## Contributing
 

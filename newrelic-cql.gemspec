@@ -2,15 +2,15 @@
 require File.expand_path('../lib/newrelic-cql/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors     = ["Kyle VanderBeek"]
-  gem.email       = ["kyle@change.org"]
-  gem.description = %q{Unofficial New Relic instrumentation for cql-rb}
-  gem.summary     = %q{Unofficial New Relic instrumentation for cql-rb}
+  gem.authors     = ["Kyle VanderBeek, Mark Dimas"]
+  gem.email       = ["mark@change.org"]
+  gem.description = %q{Unofficial New Relic instrumentation for DataStax Cassandra ruby-driver}
+  gem.summary     = %q{Unofficial New Relic instrumentation for DataStax Cassandra ruby-driver}
   gem.homepage    = "http://github.com/change/newrelic-cql"
   gem.license     = "MIT"
 
   gem.files         = Dir["{lib}/**/*.rb", "LICENSE", "*.md"]
-  gem.name          = "newrelic-cql"
+  gem.name          = "cassandra-driver"
   gem.require_paths = ["lib"]
   gem.version       = NewrelicCql::VERSION
 
