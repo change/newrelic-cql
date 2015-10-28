@@ -5,7 +5,7 @@ DependencyDetection.defer do
   named :cassandra
 
   depends_on do
-    defined?(::Cassandra)
+    defined?(::Cassandra::Session)
   end
 
   executes do
